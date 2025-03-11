@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve("E:\\vidhya\\FinalProject\\MERN_Ecommerce\\client", "./src"),
     },
   },
 })
