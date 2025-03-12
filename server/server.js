@@ -21,19 +21,31 @@ mongoose.connect(`mongodb+srv://vidhyabalajinina:szAMZJETHtXMUba1@cluster0.tpfbm
 
 const app=express()
 const PORT=process.env.PORT||5000;
-app.use(
-    cors({origin:'http://localhost:5173/',
-        methods:['GET','POST','DELETE','PUT'],
-        allowedHeaders: [
-            "Content-Type",
-            "Authorization",
-            "Cache-Control",
-            "Expires",
-            "Pragma",
-          ],
-          credentials: true,
-    })
-);
+// app.use(
+//     cors({origin:'http://localhost:5173/',
+//         methods:['GET','POST','DELETE','PUT'],
+//         allowedHeaders: [
+//             "Content-Type",
+//             "Authorization",
+//             "Cache-Control",
+//             "Expires",
+//             "Pragma",
+//           ],
+//           credentials: true,
+//     })
+// );
+
+app.use(cors({
+    origin: 'http://localhost:5173', // Ensure there's no trailing slash
+    credentials: true, // If sending cookies or auth headers
+}));
+
+//app.use(express.json());
+
+// app.post('/api/auth/login', (req, res) => {
+//     res.json({ message: "Login successful" });
+// });
+
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRouter);
