@@ -20,7 +20,7 @@ mongoose.connect(`mongodb+srv://vidhyabalajinina:szAMZJETHtXMUba1@cluster0.tpfbm
 .then(()=>console.log("MongoDB connected")).catch((error)=>console.log(error));
 
 const app=express()
-const PORT=process.env.PORT||5000;
+const PORT=process.env.PORT||5003;
 // app.use(
 //     cors({origin:'http://localhost:5173/',
 //         methods:['GET','POST','DELETE','PUT'],
