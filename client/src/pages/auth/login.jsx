@@ -37,26 +37,13 @@ const navigate = useNavigate();
   function onSubmit(event) {
     event.preventDefault();
 
-    //Firebase login vidhya code change signIn with register user
-    signInWithEmailAndPassword(auth,formData.email,formData.password).then((data) => {
-      if (data?.payload?.success) {
-        toast({
-          title: data?.payload?.message,
-        });
-        navigate("/shopping-view/home");
-      } else {
-        toast({
-          title: data?.payload?.message,
-          variant: "destructive",
-        });
-      }
-    });
-
-    // dispatch(loginUser(formData)).then((data) => {
+    // //Firebase login vidhya code change signIn with register user
+    // signInWithEmailAndPassword(auth,formData.email,formData.password).then((data) => {
     //   if (data?.payload?.success) {
     //     toast({
     //       title: data?.payload?.message,
     //     });
+    //     navigate("/shopping-view/home");
     //   } else {
     //     toast({
     //       title: data?.payload?.message,
@@ -64,6 +51,19 @@ const navigate = useNavigate();
     //     });
     //   }
     // });
+
+    dispatch(loginUser(formData)).then((data) => {
+      if (data?.payload?.success) {
+        toast({
+          title: data?.payload?.message,
+        });
+      } else {
+        toast({
+          title: data?.payload?.message,
+          variant: "destructive",
+        });
+      }
+    });
   }
 
   return (

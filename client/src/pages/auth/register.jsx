@@ -23,8 +23,28 @@ function AuthRegister() {
     event.preventDefault();
 
 
-    //vidhya change for firebase
-    createUserWithEmailAndPassword(auth, formData.email,formData.password).then((data) => {
+  //   //vidhya change for firebase
+  //   createUserWithEmailAndPassword(auth, formData.email,formData.password).then((data) => {
+  //     if (data?.payload?.success) {
+  //       toast({
+  //         title: data?.payload?.message,
+  //       });
+  //       navigate("/auth/login");
+  //     } else {
+  //       toast({
+  //         title: data?.payload?.message,
+  //         variant: "destructive",
+  //       });
+  //     }
+  //   });
+  // }
+
+
+
+// Simulate login process
+console.log('User logged in:', { email, password });
+
+    dispatch(registerUser(formData)).then((data) => {
       if (data?.payload?.success) {
         toast({
           title: data?.payload?.message,
@@ -37,28 +57,8 @@ function AuthRegister() {
         });
       }
     });
-  }
-
-
-
-// Simulate login process
-//console.log('User logged in:', { email, password });
-
-    // dispatch(registerUser(formData)).then((data) => {
-    //   if (data?.payload?.success) {
-    //     toast({
-    //       title: data?.payload?.message,
-    //     });
-    //     navigate("/auth/login");
-    //   } else {
-    //     toast({
-    //       title: data?.payload?.message,
-    //       variant: "destructive",
-    //     });
-    //   }
-    // });
   
-
+  }
 console.log(formData);
 
 return (
